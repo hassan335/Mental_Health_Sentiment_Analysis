@@ -1,6 +1,4 @@
 # Muhammad Hassan Siddiqui 202407171
-# Zeeshan Ghaffar 202402482
-# ShahidAfridi Patel 202402799
 
 
 import pandas as pd
