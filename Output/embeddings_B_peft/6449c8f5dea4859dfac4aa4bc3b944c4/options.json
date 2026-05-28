@@ -1,0 +1,705 @@
+{
+    "version": "3.3.0",
+    "cli_args": "df-analyze.py --df /scratch/hsn3737/Advance_3/embeddings_B_peft.csv --target label --mode classify --classifiers knn lgbm rf lr sgd dummy --feat-select filter embed wrap --redundant-wrapper-selection --embed-select lgbm linear --wrapper-select step-up --wrapper-model linear --n-feat-filter 64 --n-feat-wrapper 20 --norm robust --nan median --filter-method assoc pred --filter-assoc-cont-classify mut_info --filter-assoc-cat-classify mut_info --filter-assoc-cont-regress mut_info --filter-assoc-cat-regress mut_info --filter-pred-regress mae --filter-pred-classify acc --htune-trials 50 --htune-cls-metric acc --htune-reg-metric mae --test-val-size 0.4 --outdir /scratch/hsn3737/proj/df_analyze_results",
+    "datapath": {
+        "_raw_paths": [
+            "/scratch/hsn3737/Advance_3/embeddings_B_peft.csv"
+        ],
+        "_drv": "",
+        "_root": "/",
+        "_tail_cached": [
+            "scratch",
+            "hsn3737",
+            "Advance_3",
+            "embeddings_B_peft.csv"
+        ],
+        "_str": "/scratch/hsn3737/Advance_3/embeddings_B_peft.csv"
+    },
+    "target": "label",
+    "grouper": null,
+    "categoricals": [],
+    "ordinals": [],
+    "drops": [],
+    "nan_handling": {
+        "_value_": "median",
+        "_name_": "Median",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.NanHandling"
+        },
+        "_sort_order_": 2
+    },
+    "norm": {
+        "_value_": "robust",
+        "_name_": "Robust",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.Normalization"
+        },
+        "_sort_order_": 1
+    },
+    "feat_select": [
+        {
+            "_value_": "embed",
+            "_name_": "Embedded",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.FeatureSelection"
+            },
+            "_sort_order_": 1
+        },
+        {
+            "_value_": "filter",
+            "_name_": "Filter",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.FeatureSelection"
+            },
+            "_sort_order_": 0
+        },
+        {
+            "_value_": "wrap",
+            "_name_": "Wrapper",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.FeatureSelection"
+            },
+            "_sort_order_": 2
+        }
+    ],
+    "embed_select": [
+        {
+            "_value_": "lgbm",
+            "_name_": "LGBM",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.EmbedSelectionModel"
+            },
+            "_sort_order_": 0
+        },
+        {
+            "_value_": "linear",
+            "_name_": "Linear",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.EmbedSelectionModel"
+            },
+            "_sort_order_": 1
+        }
+    ],
+    "wrapper_select": {
+        "_value_": "step-up",
+        "_name_": "StepUp",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.WrapperSelection"
+        },
+        "_sort_order_": 0
+    },
+    "wrapper_model": {
+        "_value_": "linear",
+        "_name_": "Linear",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.WrapperSelectionModel"
+        },
+        "_sort_order_": 0
+    },
+    "n_filter_cont": 0.5,
+    "n_filter_cat": 0.5,
+    "n_feat_filter": 64,
+    "n_feat_wrapper": 20,
+    "filter_assoc_cont_cls": {
+        "_value_": "mut_info",
+        "_name_": "MutualInfo",
+        "__objclass__": {
+            "py/type": "df_analyze.analysis.univariate.associate.ContClsStats"
+        },
+        "_sort_order_": 6
+    },
+    "filter_assoc_cat_cls": {
+        "_value_": "mut_info",
+        "_name_": "MutualInfo",
+        "__objclass__": {
+            "py/type": "df_analyze.analysis.univariate.associate.CatClsStats"
+        },
+        "_sort_order_": 0
+    },
+    "filter_assoc_cont_reg": {
+        "_value_": "mut_info",
+        "_name_": "MutualInfo",
+        "__objclass__": {
+            "py/type": "df_analyze.analysis.univariate.associate.ContRegStats"
+        },
+        "_sort_order_": 2
+    },
+    "filter_assoc_cat_reg": {
+        "_value_": "mut_info",
+        "_name_": "MutualInfo",
+        "__objclass__": {
+            "py/type": "df_analyze.analysis.univariate.associate.CatRegStats"
+        },
+        "_sort_order_": 0
+    },
+    "filter_pred_cls_score": {
+        "_value_": "acc",
+        "_name_": "Accuracy",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.ClsScore"
+        },
+        "_sort_order_": 0
+    },
+    "filter_pred_reg_score": {
+        "_value_": "mae",
+        "_name_": "MAE",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.RegScore"
+        },
+        "_sort_order_": 0
+    },
+    "redundant_selection": true,
+    "redundant_threshold": 0.005,
+    "redundant_corr_threshold": 0.8,
+    "is_classification": true,
+    "classifiers": [
+        {
+            "_value_": "dummy",
+            "_name_": "Dummy",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 8
+        },
+        {
+            "_value_": "knn",
+            "_name_": "KNN",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 0
+        },
+        {
+            "_value_": "lgbm",
+            "_name_": "LGBM",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 1
+        },
+        {
+            "_value_": "lr",
+            "_name_": "LR",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 3
+        },
+        {
+            "_value_": "rf",
+            "_name_": "RF",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 2
+        },
+        {
+            "_value_": "sgd",
+            "_name_": "SGD",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+            },
+            "_sort_order_": 4
+        }
+    ],
+    "regressors": [
+        {
+            "_value_": "dummy",
+            "_name_": "Dummy",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeRegressor"
+            },
+            "_sort_order_": 8
+        },
+        {
+            "_value_": "elastic",
+            "_name_": "ElasticNet",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeRegressor"
+            },
+            "_sort_order_": 3
+        },
+        {
+            "_value_": "knn",
+            "_name_": "KNN",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeRegressor"
+            },
+            "_sort_order_": 0
+        },
+        {
+            "_value_": "lgbm",
+            "_name_": "LGBM",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeRegressor"
+            },
+            "_sort_order_": 1
+        },
+        {
+            "_value_": "sgd",
+            "_name_": "SGD",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.DfAnalyzeRegressor"
+            },
+            "_sort_order_": 4
+        }
+    ],
+    "htune_trials": 50,
+    "htune_cls_metric": {
+        "_value_": "acc",
+        "_name_": "Accuracy",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.ClassifierScorer"
+        },
+        "_sort_order_": 0
+    },
+    "htune_reg_metric": {
+        "_value_": "mae",
+        "_name_": "MAE",
+        "__objclass__": {
+            "py/type": "df_analyze.enumerables.RegressorScorer"
+        },
+        "_sort_order_": 0
+    },
+    "test_val_size": 0.4,
+    "outdir": {
+        "_raw_paths": [
+            "/scratch/hsn3737/proj/df_analyze_results",
+            "embeddings_B_peft"
+        ],
+        "_drv": "",
+        "_root": "/",
+        "_tail_cached": [
+            "scratch",
+            "hsn3737",
+            "proj",
+            "df_analyze_results",
+            "embeddings_B_peft"
+        ],
+        "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft"
+    },
+    "is_spreadsheet": false,
+    "separator": ",",
+    "verbosity": {
+        "_value_": 1,
+        "_name_": "INFO",
+        "__objclass__": {
+            "py/type": "df_analyze.cli.cli.Verbosity"
+        },
+        "_sort_order_": 1
+    },
+    "no_warn_explosion": false,
+    "no_preds": false,
+    "program_dirs": {
+        "root": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4"
+        },
+        "terminal": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "terminal_outputs.txt"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "terminal_outputs.txt"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/terminal_outputs.txt"
+        },
+        "options": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "options.json"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "options.json"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/options.json"
+        },
+        "joblib_cache": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "__JOBLIB_CACHE__"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "__JOBLIB_CACHE__"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/__JOBLIB_CACHE__"
+        },
+        "renames": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "feature_renamings.md"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "feature_renamings.md"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/feature_renamings.md"
+        },
+        "inspection": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "inspection"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "inspection"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/inspection"
+        },
+        "prepared": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "prepared"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "prepared"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/prepared"
+        },
+        "features": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/features"
+        },
+        "associations": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features/associations"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features",
+                "associations"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/features/associations"
+        },
+        "predictions": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features/predictions"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "features",
+                "predictions"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/features/predictions"
+        },
+        "selection": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/selection"
+        },
+        "filter": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection/filter"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection",
+                "filter"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/selection/filter"
+        },
+        "embed": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection/embed"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection",
+                "embed"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/selection/embed"
+        },
+        "wrapper": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection/wrapper"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "selection",
+                "wrapper"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/selection/wrapper"
+        },
+        "tuning": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "tuning"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "tuning"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/tuning"
+        },
+        "results": {
+            "_raw_paths": [
+                "/scratch/hsn3737/proj/df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "results"
+            ],
+            "_drv": "",
+            "_root": "/",
+            "_tail_cached": [
+                "scratch",
+                "hsn3737",
+                "proj",
+                "df_analyze_results",
+                "embeddings_B_peft",
+                "6449c8f5dea4859dfac4aa4bc3b944c4",
+                "results"
+            ],
+            "_str": "/scratch/hsn3737/proj/df_analyze_results/embeddings_B_peft/6449c8f5dea4859dfac4aa4bc3b944c4/results"
+        },
+        "needs_clean": false
+    },
+    "comparables": {
+        "model": [
+            {
+                "_value_": "dummy",
+                "_name_": "Dummy",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 8
+            },
+            {
+                "_value_": "knn",
+                "_name_": "KNN",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 0
+            },
+            {
+                "_value_": "lgbm",
+                "_name_": "LGBM",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 1
+            },
+            {
+                "_value_": "lr",
+                "_name_": "LR",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 3
+            },
+            {
+                "_value_": "rf",
+                "_name_": "RF",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 2
+            },
+            {
+                "_value_": "sgd",
+                "_name_": "SGD",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.DfAnalyzeClassifier"
+                },
+                "_sort_order_": 4
+            }
+        ],
+        "selection": [
+            {
+                "_value_": "embed",
+                "_name_": "Embedded",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.FeatureSelection"
+                },
+                "_sort_order_": 1
+            },
+            {
+                "_value_": "filter",
+                "_name_": "Filter",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.FeatureSelection"
+                },
+                "_sort_order_": 0
+            },
+            {
+                "_value_": "wrap",
+                "_name_": "Wrapper",
+                "__objclass__": {
+                    "py/type": "df_analyze.enumerables.FeatureSelection"
+                },
+                "_sort_order_": 2
+            }
+        ],
+        "norm": {
+            "_value_": "robust",
+            "_name_": "Robust",
+            "__objclass__": {
+                "py/type": "df_analyze.enumerables.Normalization"
+            },
+            "_sort_order_": 1
+        }
+    }
+}
